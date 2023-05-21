@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcby.dao.UserDao">
+    <select id="findAll" resultType="com.qcby.entity.User">
+        select * from user
+    </select>
+
+    <select id="findById" resultType="com.qcby.entity.User" parameterType="java.lang.Integer">
+        select * from user where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.qcby.entity.User">
+        insert into user(username,birthday,sex,address)
+        values(#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from user where id =#{id}
+    </delete>
+
+    <update id="update" parameterType="com.qcby.entity.User">
+        update user set username = #{username},birthday = #{birthday},sex=#{sex},address=#{address} where id =#{id}
+    </update>
+</mapper>
